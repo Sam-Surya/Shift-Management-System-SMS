@@ -55,8 +55,8 @@ export default function CompanyLogin() {
             })
             .catch((error) => {
                 alert("Login Failed !!!");
-                const errorCode = error.code;
-                const errorMessage = error.message;
+                //const errorCode = error.code;
+               // const errorMessage = error.message;
             });
     }
 

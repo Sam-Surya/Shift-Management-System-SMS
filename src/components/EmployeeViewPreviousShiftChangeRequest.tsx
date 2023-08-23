@@ -72,7 +72,7 @@ export default function EmployeeViewPreviousShiftChangeRequest() {
                         <div className="card-body text-center mt-auto">
                                 {employeePrevShiftChangeData ? (  // Check if data is available
                                     <div>
-                                        <h5 className="card-title text-center mt-auto"></h5>
+                                      
                                        
                                         <p className="card-text text-center mt-auto"><b>{employeePrevShiftChangeData.selectedLocation}</b></p>
                                         <p className="card-text text-center mt-auto"><b>{employeePrevShiftChangeData.selectedShift}</b></p>

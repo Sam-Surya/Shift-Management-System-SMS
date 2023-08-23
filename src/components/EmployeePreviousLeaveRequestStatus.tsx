@@ -76,7 +76,7 @@ export default function EmployeeViewPreviousLeaveRequest() {
     
                             {employeePrevLeaveData ? (  // Check if data is available
                                     <div>
-                                        <h5 className="card-title text-center mt-auto"></h5>
+                                       
                                        
                                         <p className="card-text text-center mt-auto"><b>{employeePrevLeaveData.selectedFromDate}</b></p>
                                         <p className="card-text text-center mt-auto">TO</p>

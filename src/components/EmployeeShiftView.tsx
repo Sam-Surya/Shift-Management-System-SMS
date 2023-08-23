@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { db } from './firebaseConfig';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 
-import EmployeeDashboard from './EmployeeDashboard';
+
 
 export default function EmployeeShiftView() {
     const { username } = useParams();

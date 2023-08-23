@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { db } from './firebaseConfig';
-import { collection, query, where, getDocs } from 'firebase/firestore';
+import { collection,getDocs } from 'firebase/firestore';
 
 export default function CompanyViewShift() {
     const { username } = useParams();

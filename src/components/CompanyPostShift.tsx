@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { db } from './firebaseConfig';
 import { collection, query, where, getDocs } from 'firebase/firestore';
-import { doc, setDoc } from 'firebase/firestore';
+import {  setDoc } from 'firebase/firestore';
 
 export default function CompanyPostShift() {
     const { username } = useParams();

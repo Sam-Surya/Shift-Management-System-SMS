@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Shift-Management-System-SMS/static/css/main.073c9b0a.css",
-    "main.js": "/Shift-Management-System-SMS/static/js/main.4cb79fb1.js",
+    "main.js": "/Shift-Management-System-SMS/static/js/main.a02b0eef.js",
     "static/js/787.f055211e.chunk.js": "/Shift-Management-System-SMS/static/js/787.f055211e.chunk.js",
     "index.html": "/Shift-Management-System-SMS/index.html",
     "main.073c9b0a.css.map": "/Shift-Management-System-SMS/static/css/main.073c9b0a.css.map",
-    "main.4cb79fb1.js.map": "/Shift-Management-System-SMS/static/js/main.4cb79fb1.js.map",
+    "main.a02b0eef.js.map": "/Shift-Management-System-SMS/static/js/main.a02b0eef.js.map",
     "787.f055211e.chunk.js.map": "/Shift-Management-System-SMS/static/js/787.f055211e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.4cb79fb1.js"
+    "static/js/main.a02b0eef.js"
   ]
 }

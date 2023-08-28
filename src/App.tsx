@@ -22,7 +22,7 @@ function App() {
   return (
     <>
 
-    <BrowserRouter>
+    <BrowserRouter   basename="/Shift-Management-System-SMS">
 
 
     

@@ -6,6 +6,7 @@ import { db } from './firebaseConfig';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import {  setDoc } from 'firebase/firestore';
 
+import Swal from 'sweetalert2'
 export default function EmployeeShiftChangeRequest() {
 
 
@@ -45,12 +46,7 @@ export default function EmployeeShiftChangeRequest() {
     
     const status:String="Pending"
 
-   
-   
-   
-  
 
-    
         async function handleApply() {
             if (selectedShift && selectedLocation) {
                 try {
@@ -76,7 +72,16 @@ export default function EmployeeShiftChangeRequest() {
                 console.log('Please select both shift and location.');
             }
 
-            alert('Shift and location applied successfully.');
+            //alert('Shift and location applied successfully.');
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Shift and location applied successfully',
+                showConfirmButton: false,
+                timer: 1500
+              })
+
+            
         }
         
     

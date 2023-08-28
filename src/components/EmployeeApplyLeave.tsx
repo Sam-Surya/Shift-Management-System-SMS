@@ -2,20 +2,16 @@
 import { useParams, useNavigate } from 'react-router-dom';
 
 
-
-
-
-
 import { useState } from 'react';
+
+
 
 import { db } from './firebaseConfig';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import { setDoc } from 'firebase/firestore';
 
 
-
-
-
+import Swal from 'sweetalert2'
 
 export default function EmployeeApplyLeave() {
 
@@ -34,15 +30,8 @@ export default function EmployeeApplyLeave() {
     
 
 
-
-   
-
-
-
-
-
-
     async function handleApply() {
+
         if (selectedFromDate && selectedToDate && selectedLeaveType && leaveDescription) {
             try {
                 const q = query(collection(db, 'Employee Leave Requests'), where('email', '==', username));
@@ -60,6 +49,7 @@ export default function EmployeeApplyLeave() {
                     }, { merge: true });
     
                     console.log('Leave applied successfully.');
+                  
                 } else {
                     console.log('No data found for the given email.');
                 }
@@ -70,17 +60,17 @@ export default function EmployeeApplyLeave() {
             console.log('Please select both all the Field');
         }
 
-        alert('Leave applied successfully.');
+        //alert('Leave applied successfully.');
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Leave applied successfully',
+            showConfirmButton: false,
+            timer: 1500
+          })
     }
 
 
-
-
-
-
-
-
-    
     
     function handleLogout(){
 
@@ -167,11 +157,6 @@ export default function EmployeeApplyLeave() {
                 </div>
                 </div>
             </div>
-
-
-
-
-
 
 
 

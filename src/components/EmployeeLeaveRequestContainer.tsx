@@ -3,43 +3,36 @@ import { useParams, useNavigate } from 'react-router-dom';
 
 
 
-
-
-
-
-
 export default function EmployeeLeaveRequestContainer() {
 
   const { username } = useParams();
-    
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-  function handleBack(){
+
+  function handleBack() {
 
     navigate(`/EmployeeDashboard/${username}`);
 
-}
+  }
 
-function handleLogout(){
+  function handleLogout() {
 
-  navigate('/Login');
+    navigate('/Login');
 
-}
+  }
 
-function handlePrevLeave(){
+  function handlePrevLeave() {
 
-  navigate(`/EmployeeViewPreviousLeaveRequest/${username}`);
+    navigate(`/EmployeeViewPreviousLeaveRequest/${username}`);
 
-}
-
-
+  }
 
 
-function handleApplyLeave(){
+  function handleApplyLeave() {
 
-  navigate(`/EmployeeApplyLeave/${username}`);
+    navigate(`/EmployeeApplyLeave/${username}`);
 
-}
+  }
 
 
 
@@ -48,30 +41,19 @@ function handleApplyLeave(){
 
 
       <div className="container mt-5">
-                <div className="row justify-content-center">
-                    <div className="col-md-6">
-                        <div className="card">
-                        
-                            <button className="btn btn-dark my-3 mx-3" type="button" onClick={handlePrevLeave}>View Previous Leave Request Status</button>
-                            <button className="btn btn-dark my-3 mx-3" type="button" onClick={handleApplyLeave}>Apply Fresh Leave Request</button>
-                            <button className="btn btn-dark my-3 mx-3" type="button" onClick={handleBack}>Back</button>
-                            <button className="btn btn-dark my-3 mx-3" type="button" onClick={handleLogout}>Logout</button>
-                        </div> 
-                  </div>
+        <div className="row justify-content-center">
+          <div className="col-md-6">
+            <div className="card">
+
+              <button className="btn btn-dark my-3 mx-3" type="button" onClick={handlePrevLeave}>View Previous Leave Request Status</button>
+              <button className="btn btn-dark my-3 mx-3" type="button" onClick={handleApplyLeave}>Apply Fresh Leave Request</button>
+              <button className="btn btn-dark my-3 mx-3" type="button" onClick={handleBack}>Back</button>
+              <button className="btn btn-dark my-3 mx-3" type="button" onClick={handleLogout}>Logout</button>
             </div>
+          </div>
+        </div>
 
-            </div>
-
-
-
-
-
-
-
-
-
-
-
+      </div>
 
 
     </div>

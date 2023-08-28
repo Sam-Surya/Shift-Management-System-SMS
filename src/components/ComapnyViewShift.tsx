@@ -1,15 +1,27 @@
 import { useEffect, useState } from 'react';
+
+
 import { useParams, useNavigate } from 'react-router-dom';
+
+
 import { db } from './firebaseConfig';
-import { collection,getDocs } from 'firebase/firestore';
+import { collection, getDocs } from 'firebase/firestore';
+
+
 
 export default function CompanyViewShift() {
+
+
     const { username } = useParams();
     const navigate = useNavigate();
-    const [employeeShiftData, setEmployeeShiftData] = useState<any[]>([]); // Initialize as an empty array
+
+
+    const [employeeShiftData, setEmployeeShiftData] = useState<any[]>([]);
 
     useEffect(() => {
+
         async function fetchEmployeeShiftDetails() {
+
             try {
                 const q = collection(db, 'Employee Shift Details');
                 const querySnapshot = await getDocs(q);
@@ -23,30 +35,33 @@ export default function CompanyViewShift() {
             } catch (error) {
                 console.error('Error fetching employee shift details:', error);
             }
+
         }
 
         fetchEmployeeShiftDetails();
+
+
     }, [username]);
 
 
 
-    
-    function handleBack(){
+
+    function handleBack() {
 
         navigate(`/CompanyDashboard/${username}`);
 
     }
+
+
 
     return (
         <div>
 
             <div className="container mt-5">
 
-            <button className="btn btn-dark w-100 mx-auto my-3" type="button" onClick={handleBack}>Back</button>
+                <button className="btn btn-dark w-100 mx-auto my-3" type="button" onClick={handleBack}>Back</button>
 
                 <div className="row ">
-                 
-                
 
                     {employeeShiftData.map((employee, index) => (
                         <div className="col-md-6 my-3" key={index}>
@@ -57,7 +72,7 @@ export default function CompanyViewShift() {
                                     <p className="card-text">{employee["Date"]}</p>
                                     <p className="card-text">{employee["Shift"]}</p>
                                     <p className="card-text">{employee["Location"]}</p>
-                                    {/* Add more properties as needed */}
+
                                 </div>
                             </div>
                         </div>

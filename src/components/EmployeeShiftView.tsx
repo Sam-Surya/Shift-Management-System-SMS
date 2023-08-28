@@ -1,18 +1,26 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+
+
 import { db } from './firebaseConfig';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 
 
 
+
 export default function EmployeeShiftView() {
+
+
     const { username } = useParams();
-    
     const navigate = useNavigate();
+
+
     const [employeeShiftData, setEmployeeShiftData] = useState<any | null>(null); 
 
     useEffect(() => {
+
         async function fetchEmployeeShiftDetails() {
+
             try {
                 const q = query(collection(db, 'Employee Shift Details'), where('email', '==', username));
                 const querySnapshot = await getDocs(q);
@@ -55,6 +63,7 @@ export default function EmployeeShiftView() {
                         <div className="card">
                             <h5 className="card-header text-center mt-auto">View Shift</h5>
                             <div className="card-body text-center mt-auto">
+                               
                                 {employeeShiftData ? (
                                     <>
                                         <h5 className="card-title text-center mt-auto">{employeeShiftData["Employee ID"]}</h5>
@@ -62,19 +71,16 @@ export default function EmployeeShiftView() {
                                         <h5 className="card-title text-center mt-auto">{employeeShiftData.Date}</h5>
                                         <p className="card-text text-center mt-auto">{employeeShiftData.Shift}</p>
                                         <p className="card-text text-center mt-auto">{employeeShiftData.Location}</p>
-                                    </>
-                                ) : (
-                                    <p>Loading...</p>
-                                )}
+                                    </> ) 
+                                    : ( <p>Please Wait ! Loading...</p>)
+                                
+                                }
+
                                 <div>
-                                    <button className="btn btn-dark my-3 w-100" type="button" onClick={handleBack}>
-                                        Go Back
-                                    </button>
+                                    <button className="btn btn-dark my-3 w-100" type="button" onClick={handleBack}>Go Back</button>
                                 </div>
                                 <div>
-                                    <button className="btn btn-dark my-3 w-100" type="button" onClick={handleLogout}>
-                                        Logout
-                                    </button>
+                                    <button className="btn btn-dark my-3 w-100" type="button" onClick={handleLogout}>Logout</button>
                                 </div>
                             </div>
                         </div>

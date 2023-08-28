@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 
 
-
-
-import {app} from './firebaseConfig';
+import { app } from './firebaseConfig';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
+
+import Swal from 'sweetalert2'
 
 
 
@@ -24,47 +25,63 @@ export default function Login() {
     const navigate = useNavigate();
 
 
-    function emailChanged(event:any) {
+    function emailChanged(event: any) {
         setEmail(event.target.value);
     }
 
-    function passwordChanged(event:any) {
+    function passwordChanged(event: any) {
         setPassword(event.target.value);
     }
 
-    function handleBack(){
+    function handleBack() {
 
         navigate('/');
 
     }
 
-    function handleSubmit(event:any) {
+    function handleSubmit(event: any) {
 
-        
+
         event.preventDefault();
 
         const allowedDomain = 'gmail.com';
         if (!email.endsWith(`@${allowedDomain}`)) {
-            alert('Only Employees email addresses are allowed.');
+           
+            
+
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Only Employees email addresses are allowed',
+                confirmButtonColor:'black',
+              })
             return;
         }
 
         const auth = getAuth(app);
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-              
+
                 const user = userCredential.user;
-               
-                
-                 navigate(  `/EmployeeDashboard/${user.email}`);
-               
-                
-          
+
+
+                navigate(`/EmployeeDashboard/${user.email}`);
+
+
+
             })
             .catch((error) => {
-                alert("Login Failed !!!");
-                //const errorCode = error.code;
-                //const errorMessage = error.message;
+              //  alert("Login Failed !!!");
+             
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Login Failed !!!',
+                    confirmButtonColor:'black',
+                 
+                  })
+
+
             });
     }
 
@@ -75,7 +92,7 @@ export default function Login() {
                     <div className="col-md-6">
                         <div className="card">
                             <div className="card-header text-center mt-auto">
-                               <b> Employee Login</b>
+                                <b> Employee Login</b>
                             </div>
                             <div className="card-body">
                                 <form onSubmit={handleSubmit}>
@@ -89,16 +106,16 @@ export default function Login() {
                                     </div>
                                     <div className='text-center mt-auto'>
                                         <button type="submit" className="btn btn-dark w-100">Login</button>
-                                    
+
                                     </div>
 
 
                                 </form>
-                                
+
                             </div>
 
                             <div className="card-footer text-muted">
-                            <button type="submit" className="btn btn-dark w-100" onClick={handleBack}>Back</button>
+                                <button type="submit" className="btn btn-dark w-100" onClick={handleBack}>Back</button>
                             </div>
                         </div>
                     </div>

@@ -1,9 +1,9 @@
 import React from 'react'
 
-
-
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+
+
 import { db } from './firebaseConfig';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 
@@ -11,10 +11,7 @@ import { collection, query, where, getDocs } from 'firebase/firestore';
 export default function EmployeeViewPreviousShiftChangeRequest() {
 
     const { username } = useParams();
-
     const navigate = useNavigate();
-
-
 
 
     const [employeePrevShiftChangeData, setemployeePrevShiftChangeData] = useState<any | null>(null); 
@@ -39,11 +36,6 @@ export default function EmployeeViewPreviousShiftChangeRequest() {
 
         fetchEmployeeShiftChangRequestDetails();
     }, [username]);
-
-
-
-
-    
 
 
 
@@ -90,11 +82,6 @@ export default function EmployeeViewPreviousShiftChangeRequest() {
                 </div>
                 </div>
             </div>
-
-
-
-
-
 
 
 

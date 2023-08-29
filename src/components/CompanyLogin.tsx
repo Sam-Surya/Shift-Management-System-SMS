@@ -109,17 +109,17 @@ export default function CompanyLogin() {
                                 <b> Company Login</b>
                             </div>
                             <div className="card-body">
-                                <form>
+                                <form   onSubmit={handleSubmit}>
                                     <div className="mb-3">
                                         <label htmlFor="username" className="form-label">Username</label>
-                                        <input type="text" className="form-control" id="username" name="username" required onChange={emailChanged} value={email} />
+                                        <input type="text" className="form-control" id="username" name="username"  onChange={emailChanged} required value={email} />
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor="password" className="form-label">Password</label>
-                                        <input type="password" className="form-control" id="password" name="password" required onChange={passwordChanged} value={password} />
+                                        <input type="password" className="form-control" id="password" name="password" onChange={passwordChanged} required  value={password} />
                                     </div>
                                     <div className='text-center mt-auto'>
-                                        <button type="submit" className="btn btn-dark w-100" onClick={handleSubmit}>Login</button>
+                                        <button type="submit" className="btn btn-dark w-100" >Login</button>
                                     </div>
                                 </form>
                             </div>
